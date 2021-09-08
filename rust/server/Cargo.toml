@@ -1,0 +1,8 @@
+[package]
+name = "conceptual-geometer-server"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+eyre = "0.6.5"
+conceptual-geometer-core = { path = "../core" }

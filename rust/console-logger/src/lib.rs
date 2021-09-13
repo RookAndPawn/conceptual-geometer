@@ -1,16 +1,14 @@
-use conceptual_geometer_core::{ConceptualGeometerPlugin, PluginRegistrar};
+use conceptual_geometer_core::{ConceptualGeometerPlugin};
 
-conceptual_geometer_core::export_plugin!(register);
+conceptual_geometer_core::export_plugin!("Console Logger" => {
+    ConsoleLogger::default()
+});
 
-#[allow(improper_ctypes_definitions)]
-extern "C" fn register(registrar: &mut dyn PluginRegistrar) {
-    registrar.register_function("Console", Box::new(ConsoleLogger));
-}
-
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub struct ConsoleLogger;
 
 impl ConceptualGeometerPlugin for ConsoleLogger {
+
     fn name(&self) -> &'static str {
         "Console Logger"
     }

@@ -1,11 +1,10 @@
 use libloading::Library;
 use conceptual_geometer_core::{
     ConceptualGeometerPlugin,
-    PluginDeclaration,
-    PluginRegistrar as Registrar,
     RUSTC_VERSION,
     CORE_VERSION
 };
+use conceptual_geometer_core::internal::{ PluginDeclaration, PluginRegistrar as Registrar };
 use std::{alloc::System, env, ffi::OsStr, path::PathBuf};
 use eyre::{Result, eyre};
 
@@ -131,7 +130,7 @@ impl PluginRegistrar {
 }
 
 impl Registrar for PluginRegistrar {
-    fn register_function(
+    fn register_plugin(
         &mut self,
         name: &str,
         plugin: Box<dyn ConceptualGeometerPlugin>

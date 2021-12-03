@@ -1,11 +1,10 @@
-pub static CORE_VERSION: &str = env!("CARGO_PKG_VERSION");
-pub static RUSTC_VERSION: &str = env!("RUSTC_VERSION");
+pub const CORE_VERSION: &str = env!("CARGO_PKG_VERSION");
+pub const RUSTC_VERSION: &str = env!("RUSTC_VERSION");
 
 pub use conceptual_geometer_plugin::ConceptualGeometerPlugin;
 
-
-mod model;
 mod conceptual_geometer_plugin;
+pub mod model;
 pub mod internal;
 
 #[macro_export]
@@ -14,7 +13,7 @@ macro_rules! export_plugin {
 
         mod private {
             use super::*;
-            use ::conceptual_geometer_core::internal::{
+            use $crate::internal::{
                 PluginDeclaration,
                 PluginRegistrar
             };

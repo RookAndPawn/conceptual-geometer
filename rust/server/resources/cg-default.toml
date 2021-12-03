@@ -1,0 +1,4 @@
+
+plugin_dir = "plugins"
+plugin_bin_dir = "plugin-process"
+db_file = "cg.sqlite"
